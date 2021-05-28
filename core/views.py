@@ -2,31 +2,23 @@ from django.views.generic import ListView
 from django.shortcuts import render
 from .filters import ProdutoFilter
 from .models import Produto
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 import datetime
 
 
-def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, "core/produtos.html")
-    else:
-        return render(request, "core/produtos.html")
-
-
-class ProdutoListView(ListView):
+class ProdutoListView(LoginRequiredMixin, ListView):
     template_name = "core/produtos.html"
     paginate_by = 10
     model = Produto
     ordering = 'id'
 
 
+@login_required
 def produto(request, id):
     produto = Produto.objects.get(id=id)
     context = {
@@ -35,7 +27,7 @@ def produto(request, id):
     return render(request, "core/produto.html", context)
 
 
-class BuscaListView(ListView):
+class BuscaListView(LoginRequiredMixin, ListView):
     template_name = "core/busca.html"
     paginate_by = 10
     model = Produto
@@ -45,3 +37,12 @@ class BuscaListView(ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = ProdutoFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
+
+def raiz(request):
+    return redirect('/produtos')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')

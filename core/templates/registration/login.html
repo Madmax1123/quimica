@@ -16,11 +16,10 @@
             <form method="POST" style="width:100vw">
                 {% csrf_token %}
                 <div class=" form-margin">
-                    {{ form.username }}
-<!--                    <input type="text" class="form-control" id="floatingInput" placeholder="email">-->
+                    <input type="text" id="username" name="username" class="form-control" id="floatingInput" placeholder="username">
                 </div>
                 <div class="form-margin">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="senha">
+                    <input type="password" id="password" name="password" class="form-control" id="floatingPassword" placeholder="senha">
                 </div>
                 <button class="w-100 btn btn-light" type="submit">Entrar</button>
             </form>
