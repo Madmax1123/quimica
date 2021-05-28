@@ -1,0 +1,1 @@
+web: gunicorn quimica.wsgi --log-file -
