@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="col-10 p-4 ps-5">
+
+  <h2 class="pb-5 pt-5">{{ produto.nome }}</h2>
+
+  <div class="row mb-0 p-2 bg-dark text-light">
+    <div class="col-3">Sinônimo</div>
+    <div class="col-3">Classe de Perigo</div>
+    <div class="col-3">Sub Classe de perigo</div>
+    <div class="col-3">Sinbolo GHS</div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-3">{{ produto.sinonimo }}</div>
+    <div class="col-3">{{ produto.classe_de_perigo }}</div>
+    <div class="col-3">{{ produto.sub_classe_de_perigo }}</div>
+    <div class="col-3">{{ produto.simbolo_ghs }}</div>
+  </div>
+
+
+  <div class="row mb-0 p-2 bg-dark text-light">
+    <div class="col-3">Incompatibilidade</div>
+    <div class="col-3">Local de Armazenamento</div>
+    <div class="col-3">Quantidade</div>
+    <div class="col-3">Lote</div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-3">{{ produto.incompatibilidade }}</div>
+    <div class="col-3">{{ produto.local_armazenamento }}</div>
+    <div class="col-3">{{ produto.quantidade }}</div>
+    <div class="col-3">{{ produto.lote }}</div>
+  </div>
+
+    <div class="row mb-0 p-2 bg-dark text-light">
+    <div class="col-3">Validade</div>
+    <div class="col-3">link FISPQ</div>
+    <div class="col-3">Residuo</div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-3">{{ produto.validate }}</div>
+    <div class="col-3">{{ produto.link_FISPQ }}</div>
+    <div class="col-3">{{ produto.residuo }}</div>
+    <div class="col-3"></div>
+  </div>
+
+
+
+
+
+
+</div>
+{% endblock %}

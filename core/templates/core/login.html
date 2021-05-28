@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-2" style="background-color:#afcbff; height:100vh" ></div>
+        <div class="col-3 d-flex align-items-center" style="background-color:#0e1c36; height:100vh">
+            <form method="POST" style="width:100vw">
+                {% csrf_token %}
+                <div class=" form-margin">
+                    {{ form.username }}
+<!--                    <input type="text" class="form-control" id="floatingInput" placeholder="email">-->
+                </div>
+                <div class="form-margin">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="senha">
+                </div>
+                <button class="w-100 btn btn-light" type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="col-2" style="background-color:#ffede1; height:100vh"></div>
+        <div class="col-3" style="background-color:#fbf5f3; height:100vh"></div>
+        <div class="col-2" style="background-color:#0e1c36; height:100vh"></div>
+    </div>
+</div>
+</body>
+</html>
