@@ -1,0 +1,77 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="col-10 p-4 ps-5">
+    <form action="{% url 'cadastrar_produto' %}" method="post" class="form">
+    <div class="row">
+        <h1>Produtos</h1>
+        <table class="table tablw-striped">
+            <thead>
+                <tr>
+                    <th scope="col" >Nome</th>
+                    <th scope="col">Sinonimo</th>
+                </tr>
+            <tbody>
+                    <th scope="row" name="nome"> {{form.nome}}</th>
+                    <th scope="row" name="sinonimo"> {{form.sinonimo}}</th>
+            </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">Classe de perigo</th>
+                    <th scope="col">Sub classe de perigo</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <th scope="row" name="classe_de_perigo"> {{form.classe_de_perigo}}</th>
+                    <th scope="row" name="sub_classe_de_perigo"> {{form.sub_classe_de_perigo}}</th>
+            </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">Simbolo ghs</th>
+                    <th scope="col">Incompatibilidade</th>
+                 </tr>
+            </thead>
+            </thead>
+            <tbody>
+                    <th scope="row" name="simbolo_ghs"> {{form.simbolo_ghs}}</th>
+                    <th scope="row" name="incompatibilidade"> {{form.incompatibilidade}}</th>
+            </tbody>
+            <br>
+            <thead>
+                <tr>
+                    <th scope="col" >Local armazenamento</th>
+                    <th scope="col">Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <th scope="row" name=local_armazenamento""> {{form.local_armazenamento}}</th>
+                    <th scope="row" name="quantidade"> {{form.quantidade}}</th>
+            </tbody>
+             <tbody>
+                <tr>
+                    <th scope="col">Lote</th>
+                    <th scope="col">Data de Validade</th>
+                </tr>
+            </tbody>
+            </thead>
+                    <th scope="row" name="lote"> {{form.lote}}</th>
+                    <th scope="row" name="validate"> {{form.validate}}</th>
+            <thead>
+            <tbody>
+                 <tr>
+                    <th scope="col" >Link FISPQ</th>
+                    <th scope="col">Residuo</th>
+                 </tr>
+            </tbody>
+
+            <thead>
+                    <th scope="row" name="link_FISPQ"> {{form.link_FISPQ}}</th>
+                    <th scope="row" name="classe_de_perigo"> {{form.classe_de_perigo}}</th>
+            </thead>
+        </table>
+    </div>
+             {% csrf_token %}
+             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+     </form>
+    </div>
+</div>
+{% endblock %}

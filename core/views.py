@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from core.forms import ProdutoModelForm
 import datetime
 
 
@@ -26,6 +27,20 @@ def produto(request, id):
     }
     return render(request, "core/produto.html", context)
 
+
+def produto_form(request):
+    if str(request.method) == 'POST':
+        form = ProdutoModelForm(request.POST, request.FILES)
+        if form.is_valid():
+    
+            form.save(Produto)
+            form = ProdutoModelForm()
+    context = {
+        'form': form
+    }
+
+
+    return render(request, 'core/cadastrar_produto.html', context)
 
 class BuscaListView(LoginRequiredMixin, ListView):
     template_name = "core/busca.html"

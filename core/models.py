@@ -32,7 +32,7 @@ class LocalArmazenamento(models.Model):
 class Produto(models.Model):
     nome = models.CharField('Nome', max_length=100)
     sinonimo = models.CharField('Sinonimo', max_length=100)
-    classe_de_perigo = models.ForeignKey(ClasseDePerigo, on_delete=models.CASCADE)
+    classe_de_perigo = models.ForeignKey( ClasseDePerigo, on_delete=models.CASCADE)
     sub_classe_de_perigo = models.ForeignKey(SubClassesDePerigo, on_delete=models.CASCADE)
     simbolo_ghs = models.ForeignKey(SimboloGHS, on_delete=models.CASCADE)
     incompatibilidade = models.CharField('Incompatibilidade', max_length=100)
