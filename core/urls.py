@@ -10,5 +10,6 @@ urlpatterns = [
     path('produto/<int:id>', views.produto, name='produto'),
     path('busca', views.BuscaListView.as_view(), name='busca'),
     path('', views.raiz, name='raiz'),
+    path('criarconta', views.criarconta, name='criarconta'),
     path('sair', views.logout_view, name='sair'),
 ]

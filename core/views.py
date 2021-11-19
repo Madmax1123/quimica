@@ -57,6 +57,8 @@ class BuscaListView(LoginRequiredMixin, ListView):
 def raiz(request):
     return redirect('/produtos')
 
+def criarconta(request):
+    return render(request, 'registration/criarconta.html')
 
 def logout_view(request):
     logout(request)
