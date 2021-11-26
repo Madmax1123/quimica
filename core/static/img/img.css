@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
 	box-sizing: border-box;
 }
@@ -70,3 +71,19 @@ body {
 	height: 700px;
 }
 }
+=======
+.img {
+    background-image: url('aplicativo.png');
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.center{
+     position: relative;
+     width: 100%;
+     top: 50%;
+     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+>>>>>>> 27d852b03e287603d6c7389fac1f7dfcc3af1703

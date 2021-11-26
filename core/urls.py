@@ -12,5 +12,6 @@ urlpatterns = [
     path('criarconta', views.criarconta, name='criarconta'),
     path('busca', views.BuscaListView.as_view(), name='busca'),
     path('', views.raiz, name='raiz'),
+    path('criarconta', views.criarconta, name='criarconta'),
     path('sair', views.logout_view, name='sair'),
 ]
