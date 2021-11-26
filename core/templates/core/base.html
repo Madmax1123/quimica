@@ -2,77 +2,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0" charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'test.css' %}">
     <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'img/img.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
 <body>
 
+<header></header>
 
-<header>
-
-</header>
-
-
-
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-2 ps-0">
-      <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sticky-top" style="width: 18vw; height:100vh">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <span class="fs-4">App</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-<!--        <a href="/" class="nav-link active" aria-current="page">-->
-          <a href="/" class="nav-link text-white"  aria-current="page">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="/produtos" class="nav-link text-white">
-          Produtos
-        </a>
-      </li>
-      <li>
-        <a href="/busca" class="nav-link text-white">
-          Busca
-        </a>
-      </li>
-      <li>
-        <a href="/cadastrar_produto" class="nav-link text-white">
-          Cadastrar Produtos
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>{{request.user.first_name }}</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="/sair">Sign out</a></li>
-      </ul>
+<nav>
+    <div class="rounded d-flex justify-content-center">
+        <div class="image">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'img/risqlac.png' %}" width="160" height="76" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <div class="text-center">
+                            <a class="nav-link" href="/" style="color: white;">
+                                <i><img class="img-fluid" src="{% static 'img/home.png' %}" width="45"></i><br>
+                                Início
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <a class="nav-link" href="busca" style="color: white;">
+                                <i><img class="img-fluid" src="{% static 'img/lupa.png' %}" width="45"></i><br>
+                                Buscar produtos
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <a class="nav-link" href="quemsomos" style="color: white;">
+                                <i><img class="img-fluid" src="{% static 'img/group.png' %}" width="47"></i><br>
+                                Quem somos
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <a class="nav-link" href="contato" style="color: white;">
+                                <i><img class="img-fluid" src="{% static 'img/contact-mail.png' %}" width="46"></i><br>
+                                Contato
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <a class="nav-link" href="ghs" style="color: white;">
+                                <i><img class="img-fluid" src="{% static 'img/ghs.png' %}" width="45"></i><br>
+                                O que é GHS
+                            </a>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#"
+                               class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                               id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                <img src="https://cdn-icons.flaticon.com/png/128/1620/premium/1620754.png?token=exp=1637524914~hmac=54c53db87586cf81fb9ae3a399704baa"
+                                     alt="" width="45"
+                                     class="img-fluid">
+                                <strong> Sair {{request.user.first_name }}</strong>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-white text-small "
+                                aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="/sair">Sair da conta</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-  </div>
-    </div>
+</nav>
+{% block content %}
 
-    {% block content %}
 {% endblock %}
-
-  </div>
-</div>
-
-
-
 
 </body>
 </html>

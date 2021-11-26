@@ -1,0 +1,72 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: poppins;
+	font-size: 16px;
+	color: #fff;
+}
+
+.image{
+  background-image: url(aplicativo.png);
+
+  width: 100%;
+  height: auto;
+
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.form-box {
+	background-color: rgba(255,255,255, 0.3);
+	margin: auto auto;
+        padding: 40px;
+	border-radius: 13px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 580px;
+	height: 700px;
+}
+
+.form-box .header-text {
+	font-size: 19px;
+	font-weight: 600;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+
+
+.form-box button {
+	background-color: #606320;
+	color: #fff;
+	border: none;
+	border-radius: 7px;
+	cursor: pointer;
+	width: 10px;
+	font-size: 18px;
+	padding: 10px;
+	margin: 10px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-box {
+	background-color: rgba(255,255,255, 0.3);
+	margin: auto auto;
+        padding: 40px;
+	border-radius: 13px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 580px;
+	height: 700px;
+}
+}

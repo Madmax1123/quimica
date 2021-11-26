@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from core.forms import ProdutoModelForm
 import datetime
@@ -29,18 +30,16 @@ def produto(request, id):
 
 
 def produto_form(request):
-    if str(request.method) == 'POST':
-        form = ProdutoModelForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        form = ProdutoModelForm(request.method)
         if form.is_valid():
-    
-            form.save(Produto)
-            form = ProdutoModelForm()
-    context = {
-        'form': form
-    }
+            form.save()
 
+            return HttpResponseRedirect('/')
+        else:
+            form = ProdutoModelForm
 
-    return render(request, 'core/cadastrar_produto.html', context)
+    return render(request, 'core/cadastrar_produto.html', {"form":form})
 
 class BuscaListView(LoginRequiredMixin, ListView):
     template_name = "core/busca.html"
@@ -53,6 +52,14 @@ class BuscaListView(LoginRequiredMixin, ListView):
         context['filter'] = ProdutoFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
+def test(request):
+    return render(request, 'registration/test.html')
+
+def criarconta(response):
+
+
+    return render(response, 'registration/criarconta.html')
+
 
 def raiz(request):
     return redirect('/produtos')
@@ -61,3 +68,7 @@ def raiz(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+def contato(request):
+    return render(request, 'core/contato.html')
